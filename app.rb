@@ -5,7 +5,11 @@ require 'sinatra/activerecord'
 
 set :database, "sqlite3:barbershop.db"
 
-class Client < ActiveRecord::Base	
+class Client < ActiveRecord::Base
+	validates :name, presence: true # presence: true эквивалентно {presence => true}
+	validates :phone, presence: true
+	validates :datestamp, presence: true
+	validates :color, presence: true	
 end
 
 class Barber < ActiveRecord::Base
